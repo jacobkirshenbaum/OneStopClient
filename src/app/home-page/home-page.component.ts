@@ -11,14 +11,14 @@ import {Observable} from 'rxjs';
 })
 export class HomePageComponent implements OnInit {
 
-  users: any[];
+  bookmarks: any[];
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.route.data.pipe(map(data => data.pageData))
       .subscribe((data: any) => {
-        this.users = data;
+        this.bookmarks = data;
       });
   }
 

@@ -17,6 +17,8 @@ export class LoginPageResolver implements Resolve<any> {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    return undefined;
+    return this.httpClient.get<any>(
+      `http://localhost:8080/users/all`, {}
+    );
   }
 }

@@ -1,5 +1,5 @@
-<p>home-page works!</p>
-<ng-container *ngFor="let user of users">
-  <span>{{user.user}}</span>
-  <br/>
-</ng-container>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <app-bookmark-card [bookmarks]="bookmarks"></app-bookmark-card>
+  </mat-grid-tile>
+</mat-grid-list>

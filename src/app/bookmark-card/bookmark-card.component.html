@@ -1,0 +1,12 @@
+<div>
+<mat-nav-list>
+  <mat-list-item *ngFor="let bookmark of bookmarks">
+    <a href={{bookmark.url}} target="_blank">{{ bookmark.bookmarkName }}  </a>
+    <button mat-icon-button (click)="deleteBookmark(bookmark.bookmarkName)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    {{saveUsername(bookmark.username)}}
+  </mat-list-item>
+</mat-nav-list>
+<button (click)="addBookmark()">Add bookmark</button>
+</div>

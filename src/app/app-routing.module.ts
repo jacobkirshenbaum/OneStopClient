@@ -8,7 +8,7 @@ import {HomePageResolver} from './home-page/home-page.resolver';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'home/:user',
     component: HomePageComponent,
     resolve: { pageData: HomePageResolver },
   },
@@ -17,11 +17,11 @@ const routes: Routes = [
     component: LoginPageComponent,
     resolve: {pageData: LoginPageResolver},
   },
-  // {
-  //   path: '',
-  //   component: HomePageComponent,
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    component: LoginPageComponent,
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
