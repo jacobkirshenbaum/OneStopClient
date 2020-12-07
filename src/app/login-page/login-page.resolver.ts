@@ -5,6 +5,7 @@ import {
   Router
 } from '@angular/router';
 
+
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
@@ -18,7 +19,7 @@ export class LoginPageResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.httpClient.get<any>(
-      `http://localhost:8080/users/all`, {}
+      environment.baseUrl + `/users/all`, {}
     );
   }
 }

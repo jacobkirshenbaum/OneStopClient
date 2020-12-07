@@ -18,6 +18,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatButtonModule} from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -25,23 +30,28 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     LoginPageComponent,
     HomePageComponent,
     BookmarkCardComponent,
-    BookmarkDialogComponent
+    BookmarkDialogComponent,
+    RegisterDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatToolbarModule,
-    HttpClientModule,
-    MatListModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatToolbarModule,
+        HttpClientModule,
+        MatListModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatDialogModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatButtonModule,
+        MatNativeDateModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

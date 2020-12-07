@@ -1,5 +1,8 @@
-<mat-grid-list cols="2">
-  <mat-grid-tile>
-    <app-bookmark-card [bookmarks]="bookmarks"></app-bookmark-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="calendar">
+  <input matInput [matDatepicker]="cal" [hidden]="true">
+  <mat-datepicker #cal></mat-datepicker>
+  <button mat-raised-button (click)="cal.open()">Open Calendar</button>
+</div>
+<div class="bookamrk">
+  <app-bookmark-card [bookmarks]="bookmarks"></app-bookmark-card>
+</div>

@@ -18,8 +18,8 @@ const routes: Routes = [
     resolve: {pageData: LoginPageResolver},
   },
   {
-    path: '',
-    component: LoginPageComponent,
+    path: '**',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
 ];

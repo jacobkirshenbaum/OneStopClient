@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {BookmarkDialogComponent} from '../bookmark-dialog/bookmark-dialog.component';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-bookmark-card',
@@ -14,10 +16,11 @@ export class BookmarkCardComponent implements OnInit {
 
   username: string;
 
-  constructor(public dialog: MatDialog, public httpClient: HttpClient) {
+  constructor(public dialog: MatDialog, public httpClient: HttpClient, public route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.username = this.route.snapshot.paramMap.get('user');
   }
 
   saveUsername(user: string): void {
@@ -40,7 +43,7 @@ export class BookmarkCardComponent implements OnInit {
     const dialogRef = this.dialog.open(BookmarkDialogComponent, dialogConfig);
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     dialogRef.afterClosed().subscribe(
-      data => this.httpClient.post(`http://localhost:8080/bookmark/` + this.username + `/save`,
+      data => this.httpClient.post(environment.baseUrl + `bookmark/` + this.username + `/save`,
                                           '{ ' +
                                           '"username": "' + this.username + '",' +
                                           '"bookmarkName": "' + data.name + '",' +
@@ -53,7 +56,8 @@ export class BookmarkCardComponent implements OnInit {
 
   deleteBookmark(name: string): void {
     if (confirm('Are you sure you want to delete the ' + name + ' bookmark?')) {
-      console.log('test');
+      this.httpClient.delete(environment.baseUrl + 'bookmark/' + this.username + '/delete/' + name)
+        .subscribe();
     }
   }
 }

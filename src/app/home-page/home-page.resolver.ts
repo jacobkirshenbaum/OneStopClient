@@ -18,7 +18,7 @@ export class HomePageResolver implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
     return this.httpClient.get<any>(
-      `http://localhost:8080/bookmark/${route.params.user}`, {}
+      environment.baseUrl + `bookmark/${route.params.user}`, {}
     );
   }
 }

@@ -1,5 +1,9 @@
-<input value="Username" #username/>
-<button (click)="processUser(username.value)">Login</button>
+<input matInput value="Username" #username/>
+<input matInput type="password" value="Password" #password/>
+<br/>
+<button (click)="processUser(username.value, password.value)">Login</button>
+<br/>
+<button (click)="registerUser()">Register</button>
 
 
 
